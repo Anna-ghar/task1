@@ -2,7 +2,7 @@
 
 require_once('db.php');
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $firstName = $_POST['fname'];
     $lastName = $_POST['lname'];
     $email = $_POST['email'];
@@ -11,19 +11,19 @@ if(isset($_POST['submit'])){
 
     $errors = array();
 
-    if (empty($firstName) or empty($lastName) or empty($email) or empty($pass)){
+    if (empty($firstName) || empty($lastName) || empty($email) || empty($pass)) {
         array_push($errors, 'All fields are requared');
     }
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         array_push($errors,'Email is not valid' );
     }
 
-    if (strlen($pass)<8){
+    if (strlen($pass)<8) {
         array_push($errors,'Password must be at least 8 characters long');
     }
 
-    if (count($errors)>0){
+    if (count($errors)>0) {
         foreach($errors as $error){
             echo $error;}}
     else {
