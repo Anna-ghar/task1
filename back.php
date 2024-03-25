@@ -11,8 +11,7 @@ if(isset($_POST['submit'])){
 
     $errors = array();
 
-
-    if(empty($firstName) or empty($lastName) or empty($email) or empty($pass)){
+    if (empty($firstName) or empty($lastName) or empty($email) or empty($pass)){
         array_push($errors, 'All fields are requared');
     }
 
@@ -20,11 +19,11 @@ if(isset($_POST['submit'])){
         array_push($errors,'Email is not valid' );
     }
 
-    if(strlen($pass)<8){
+    if (strlen($pass)<8){
         array_push($errors,'Password must be at least 8 characters long');
     }
 
-    if(count($errors)>0){
+    if (count($errors)>0){
         foreach($errors as $error){
             echo $error;}}
     else {
